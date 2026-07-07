@@ -33,6 +33,16 @@ android {
 }
 
 dependencies {
+    def retrofit_version = '3.0.0'
+    def converter_version = '3.0.0'
+    def gson_version = '2.14.0'
+    def lifecycle_version = '2.2.0'
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$converter_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
