@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".fragments.RegisterDatosFragment">
+    tools:context=".fragments.fragment_register_datos">
 
     <TextView
         android:id="@+id/TV1"
@@ -47,7 +47,7 @@
             android:scaleType="fitCenter" />
 
         <EditText
-            android:id="@+id/ETNombreCompletoRD"
+            android:id="@+id/ETFullNameRD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -90,7 +90,7 @@
             android:scaleType="fitCenter" />
 
         <EditText
-            android:id="@+id/ETCorreoRD"
+            android:id="@+id/ETEmailRD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -150,7 +150,7 @@
             android:scaleType="fitCenter" />
 
         <EditText
-            android:id="@+id/ETContrasenaRD"
+            android:id="@+id/ETPasswordRD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -194,7 +194,7 @@
             android:scaleType="fitCenter" />
 
         <EditText
-            android:id="@+id/ETConfirmarContrasenaRD"
+            android:id="@+id/ETConfirmPasswordRD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -263,22 +263,21 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/BtnConfirmar"
+        android:id="@+id/BtnCrearCuentaRD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/green_button_background"
         android:text="@string/CrearCuenta"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+
         android:textAllCaps="false"
 
-        android:background="@drawable/green_button_background"
-
-        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayoutCC2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayoutCC2"
