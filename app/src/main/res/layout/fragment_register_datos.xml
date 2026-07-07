@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".fragments.RegisterDatosFragment">
+
+    <TextView
+        android:id="@+id/TV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:fontFamily="@font/gothamnarrow_medium"
+        android:text="@string/InfoPersonal"
+        android:textColor="@color/gris"
+        android:textSize="13sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <LinearLayout
+        android:id="@+id/LL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/linearlayout_transparente"
+        android:layout_marginTop="15dp"
+        android:paddingHorizontal="15dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV1">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:layout_gravity="center"
+
+            android:background="@drawable/usuario"
+            android:backgroundTint="@color/gris"
+            android:scaleType="fitCenter" />
+
+        <EditText
+            android:id="@+id/ETNombreCompletoRD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+
+            android:background="@color/transparente"
+            android:ems="10"
+
+            android:fontFamily="@font/gothamnarrow_medium"
+            android:hint="@string/NombreCompleto"
+            android:inputType="text"
+            android:paddingVertical="15dp"
+
+            android:textColor="@color/black"
+            android:textColorHint="@color/gris"
+
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/linearlayout_transparente"
+        android:layout_marginTop="15dp"
+        android:paddingHorizontal="15dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LL1">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:layout_gravity="center"
+
+            android:background="@drawable/correo"
+            android:backgroundTint="@color/gris"
+            android:scaleType="fitCenter" />
+
+        <EditText
+            android:id="@+id/ETCorreoRD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10dp"
+            android:background="@color/transparente"
+
+            android:ems="10"
+            android:fontFamily="@font/gothamnarrow_medium"
+
+            android:hint="@string/CorreoElectronico"
+            android:inputType="textEmailAddress"
+            android:paddingVertical="15dp"
+
+            android:textColor="@color/black"
+            android:textColorHint="@color/gris"
+
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TV3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+
+        android:fontFamily="@font/gothamnarrow_medium"
+        android:text="@string/SeguridadDeLaCuenta"
+        android:textColor="@color/gris"
+        android:textSize="13sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LL2"
+        />
+
+    <LinearLayout
+        android:id="@+id/LL3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/linearlayout_transparente"
+        android:layout_marginTop="15dp"
+        android:paddingHorizontal="15dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TV3">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:layout_gravity="center"
+
+            android:background="@drawable/candado"
+            android:backgroundTint="@color/gris"
+            android:scaleType="fitCenter" />
+
+        <EditText
+            android:id="@+id/ETContrasenaRD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+
+            android:background="@color/transparente"
+            android:ems="10"
+
+            android:fontFamily="@font/gothamnarrow_medium"
+            android:hint="@string/Contrasena"
+            android:inputType="textPassword"
+            android:paddingVertical="15dp"
+
+            android:textColor="@color/black"
+            android:textColorHint="@color/gris"
+
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LL4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="15dp"
+        android:background="@drawable/linearlayout_transparente"
+        android:paddingHorizontal="15dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LL3">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:layout_gravity="center"
+
+            android:background="@drawable/candado"
+            android:backgroundTint="@color/gris"
+            android:scaleType="fitCenter" />
+
+        <EditText
+            android:id="@+id/ETConfirmarContrasenaRD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+
+            android:background="@color/transparente"
+            android:ems="10"
+
+            android:fontFamily="@font/gothamnarrow_medium"
+            android:hint="@string/ConfirmarContra"
+            android:inputType="textPassword"
+            android:paddingVertical="15dp"
+
+            android:textColor="@color/black"
+            android:textColorHint="@color/gris"
+
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LL4">
+
+        <CheckBox
+            android:id="@+id/CBRD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:theme="@style/MyCheckBox"
+            android:scaleX="0.85"
+            android:scaleY="0.85"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="15dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/TyC"
+                android:textColor="@color/black"
+                android:fontFamily="@font/gotham_medium"
+                android:textSize="13sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/MensajeTyC"
+                android:textColor="@color/gris"
+                android:fontFamily="@font/gothamnarrow_medium"
+                android:textSize="11sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/BtnConfirmar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="@string/CrearCuenta"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+
+        android:background="@drawable/green_button_background"
+
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutCC2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutCC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2.5dp"
+
+            android:fontFamily="@font/gothamnarrow_medium"
+            android:text="@string/YaTienesUnaCuenta"
+            android:textColor="@color/gris"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/TVIniciarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2.5dp"
+
+            android:fontFamily="@font/gotham_medium"
+            android:text="@string/Iniciarssesion"
+            android:textColor="@color/verde"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
