@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BackendClient {
 
-    private static final String BASE_URL = "";
+    private static final String BASE_URL = "https://reciclaya.azurewebsites.net/";
     private static UserService userService;
 
     private static final Retrofit retrofit = new Retrofit.Builder()

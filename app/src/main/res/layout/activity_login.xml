@@ -270,6 +270,7 @@
 
         android:fontFamily="@font/gotham_medium"
 
+        android:onClick="IrARegistro"
         android:text="@string/RegistrateAqui"
         android:textColor="@color/verde"
         android:textSize="14sp"

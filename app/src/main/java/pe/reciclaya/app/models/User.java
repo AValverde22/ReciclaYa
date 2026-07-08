@@ -1,30 +1,28 @@
-package pe.reciclaya.app.requests;
+package pe.reciclaya.app.models;
 
-import com.google.gson.annotations.SerializedName;
-
-public class UserRegister {
-
-    @SerializedName("full_name")
-    private String fullName;
+public class User {
+    private int id;
+    private String full_name;
     private String email;
     private String password;
     private String role;
 
-    public UserRegister() {}
-
-    public UserRegister(String fullName, String email, String password, String role) {
-        this.fullName = fullName;
+    public User(int id, String full_name, String email, String password, String role) {
+        this.id = id;
+        this.full_name = full_name;
         this.email = email;
         this.password = password;
         this.role = role;
     }
 
-    public String getFullName() {return fullName;}
+    public int getId() {return id;}
+    public String getFull_name() {return full_name;}
     public String getEmail() {return email;}
     public String getPassword() {return password;}
     public String getRole() {return role;}
 
-    public void setFullName(String fullName) {this.fullName = fullName;}
+    public void setId(int id) {this.id = id;}
+    public void setFull_name(String full_name) {this.full_name = full_name;}
     public void setEmail(String email) {this.email = email;}
     public void setPassword(String password) {this.password = password;}
     public void setRole(String role) {this.role = role;}

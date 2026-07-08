@@ -1,5 +1,9 @@
 package pe.reciclaya.app.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import pe.reciclaya.app.R;
+import pe.reciclaya.app.activities.MainActivity;
+import pe.reciclaya.app.activities.RegisterActivity;
 import pe.reciclaya.app.config.BackendClient;
 import pe.reciclaya.app.requests.UserRegister;
 import pe.reciclaya.app.services.UserService;
@@ -50,6 +56,8 @@ public class fragment_register_select extends Fragment {
         }
     }
 
+    private ImageView IVRegresarUnoAtras;
+
     private FrameLayout FLPersona;
     private LinearLayout LLPersona;
     private ImageView IVPersona, IVPersonaSeleccion;
@@ -61,7 +69,7 @@ public class fragment_register_select extends Fragment {
     private TextView TVReciclador;
 
     private Button btnConfirmarRS;
-    private int opcion = -1;
+    private int opcion = 0;
 
     private String fullName, email, password;
 
@@ -72,6 +80,8 @@ public class fragment_register_select extends Fragment {
         fullName = requireArguments().getString("FullName");
         email = requireArguments().getString("Email");
         password = requireArguments().getString("Password");
+
+        IVRegresarUnoAtras = getActivity().findViewById(R.id.IVRegresarRegister);
 
         FLPersona = view.findViewById(R.id.FLPersonaSeleccionRS);
         LLPersona = view.findViewById(R.id.LLPersonaRS);
@@ -84,6 +94,13 @@ public class fragment_register_select extends Fragment {
         IVReciclador = view.findViewById(R.id.IVRecicladorRS);
         IVRecicladorSeleccion = view.findViewById(R.id.IVRecicladorSeleccionRS);
         TVReciclador = view.findViewById(R.id.TVRecicladorRS);
+
+        IVRegresarUnoAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((RegisterActivity) getActivity()).eliminarFragment();
+            }
+        });
 
         FLPersona.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,16 +127,16 @@ public class fragment_register_select extends Fragment {
             LLPersona.setBackgroundResource(R.drawable.linearlayout_verde_seleccion);
             IVPersona.setBackgroundResource(R.drawable.persona_seleccionada);
             IVPersonaSeleccion.setBackgroundResource(R.drawable.seleccionado);
-            TVPersona.setTextColor(R.color.verde);
+            TVPersona.setTextColor(getResources().getColor(R.color.verde));
 
-            opcion = 0;
+            opcion = 1;
         } else {
             LLPersona.setBackgroundResource(R.drawable.linearlayout_transparente);
             IVPersona.setBackgroundResource(R.drawable.persona_no_seleccionada);
             IVPersonaSeleccion.setBackgroundResource(R.drawable.no_seleccionado);
-            TVPersona.setTextColor(R.color.black);
+            TVPersona.setTextColor(getResources().getColor(R.color.black));
 
-            opcion = -1;
+            opcion = 0;
         }
     }
 
@@ -130,31 +147,31 @@ public class fragment_register_select extends Fragment {
             LLReciclador.setBackgroundResource(R.drawable.linearlayout_verde_seleccion);
             IVReciclador.setBackgroundResource(R.drawable.reciclador_seleccionado);
             IVRecicladorSeleccion.setBackgroundResource(R.drawable.seleccionado);
-            TVReciclador.setTextColor(R.color.verde);
+            TVReciclador.setTextColor(getResources().getColor(R.color.verde));
 
-            opcion = 1;
+            opcion = 2;
         } else {
             LLReciclador.setBackgroundResource(R.drawable.linearlayout_transparente);
             IVReciclador.setBackgroundResource(R.drawable.reciclador_no_seleccionado);
             IVRecicladorSeleccion.setBackgroundResource(R.drawable.no_seleccionado);
-            TVReciclador.setTextColor(R.color.black);
+            TVReciclador.setTextColor(getResources().getColor(R.color.black));
 
-            opcion = -1;
+            opcion = 0;
         }
     }
-    
+
     private void Confirmar(){
-        if(opcion == -1){
+        if(opcion == 0){
             Toast.makeText(
                     getContext(),
                     "¡Debe de seleccionar un rol!",
                     Toast.LENGTH_SHORT
             ).show();
         } else {
-            String rol = (opcion == 0) ? "usuario" : "reciclador";
+            String role = (opcion == 1) ? "usuario" : "reciclador";
 
             UserService apiService = BackendClient.getUserService();
-            UserRegister body = new UserRegister(fullName, email, password, rol);
+            UserRegister body = new UserRegister(fullName, email, password, role);
 
             apiService.registerUser(body).enqueue(new Callback<Integer>() {
                 @Override
@@ -162,7 +179,14 @@ public class fragment_register_select extends Fragment {
                     if (response.isSuccessful() && response.body() != null) {
                         int id = response.body();
 
-                        // TODO: INTENT
+                        SharedPreferences.Editor editor = getContext().getSharedPreferences("INICIAL", MODE_PRIVATE).edit();
+                        editor.putInt("id", id);
+                        editor.putString("role", role);
+                        editor.apply();
+
+                        Intent intent = new Intent(getContext(), MainActivity.class);
+                        startActivity(intent);
+                        getActivity().finishAffinity();
 
                     } else {
                         Toast.makeText(

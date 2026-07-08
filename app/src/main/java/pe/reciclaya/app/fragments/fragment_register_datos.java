@@ -1,9 +1,12 @@
 package pe.reciclaya.app.fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +14,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import pe.reciclaya.app.R;
 import pe.reciclaya.app.activities.LoginActivity;
+import pe.reciclaya.app.activities.RegisterActivity;
 import pe.reciclaya.app.config.BackendClient;
 import pe.reciclaya.app.requests.UserExistsEmail;
 import pe.reciclaya.app.services.UserService;
@@ -52,13 +58,18 @@ public class fragment_register_datos extends Fragment {
         }
     }
 
+    private ImageView IVRegresarUnoAtras;
+
     private EditText ETFullName, ETEmail, ETPassword, ETConfirmPassword;
     private CheckBox checkBox;
     private Button btnCrearCuenta;
+    private TextView TVIrALogin;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register_datos, container, false);
+
+        IVRegresarUnoAtras = getActivity().findViewById(R.id.IVRegresarRegister);
 
         ETFullName = view.findViewById(R.id.ETFullNameRD);
         ETEmail = view.findViewById(R.id.ETEmailRD);
@@ -67,10 +78,27 @@ public class fragment_register_datos extends Fragment {
 
         checkBox = view.findViewById(R.id.CBRD);
         btnCrearCuenta = view.findViewById(R.id.BtnCrearCuentaRD);
+        TVIrALogin = view.findViewById(R.id.TVIniciarSesionRD);
+
+        IVRegresarUnoAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnCrearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { crearCuenta(); }
+        });
+
+        TVIrALogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                getContext().startActivity(intent);
+            }
         });
 
         return view;
@@ -100,7 +128,18 @@ public class fragment_register_datos extends Fragment {
                                         Toast.LENGTH_SHORT
                                 ).show();
                             } else {
-                                //
+                                Bundle bundle = new Bundle();
+                                bundle.putString("FullName", fullName);
+                                bundle.putString("Email", email);
+                                bundle.putString("Password", password);
+
+                                if(getActivity() instanceof RegisterActivity) {
+                                    ((RegisterActivity) getActivity())
+                                            .cambiarFragment(
+                                                    new fragment_register_select(),
+                                                    bundle
+                                            );
+                                }
                             }
                         }
                     } else {
@@ -158,6 +197,6 @@ public class fragment_register_datos extends Fragment {
         return true;
     }
 
-    private boolean validarEmail(String email) { return Patterns.EMAIL_ADDRESS.matcher(email).matches(); }
+    private boolean validarEmail(String email) { return Patterns.EMAIL_ADDRESS.matcher(email).matches();}
     private boolean validarPassword(String p1, String p2) {return p1.equals(p2);}
 }
