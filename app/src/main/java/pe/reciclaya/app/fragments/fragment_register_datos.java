@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +61,7 @@ public class fragment_register_datos extends Fragment {
         }
     }
 
+    private LinearLayout LLLoading;
     private ImageView IVRegresarUnoAtras;
 
     private EditText ETFullName, ETEmail, ETPassword, ETConfirmPassword;
@@ -65,16 +69,23 @@ public class fragment_register_datos extends Fragment {
     private Button btnCrearCuenta;
     private TextView TVIrALogin;
 
+    private ImageView IVOjo1, IVOjo2;
+    private boolean bloquear1 = true, bloquear2 = true;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register_datos, container, false);
 
+        LLLoading = getActivity().findViewById(R.id.LLLoadingRegister);
         IVRegresarUnoAtras = getActivity().findViewById(R.id.IVRegresarRegister);
 
         ETFullName = view.findViewById(R.id.ETFullNameRD);
         ETEmail = view.findViewById(R.id.ETEmailRD);
         ETPassword = view.findViewById(R.id.ETPasswordRD);
         ETConfirmPassword = view.findViewById(R.id.ETConfirmPasswordRD);
+
+        IVOjo1 = view.findViewById(R.id.IVOjoUnoRegister);
+        IVOjo2 = view.findViewById(R.id.IVOjoDosRegister);
 
         checkBox = view.findViewById(R.id.CBRD);
         btnCrearCuenta = view.findViewById(R.id.BtnCrearCuentaRD);
@@ -101,6 +112,38 @@ public class fragment_register_datos extends Fragment {
             }
         });
 
+        IVOjo1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bloquear1 = !bloquear1;
+
+                if(bloquear1) {
+                    ETPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    IVOjo1.setBackgroundResource(R.drawable.desbloquear_password);
+                }
+                else {
+                    ETPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    IVOjo1.setBackgroundResource(R.drawable.bloquear_password);
+                }
+            }
+        });
+
+        IVOjo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bloquear2 = !bloquear2;
+
+                if(bloquear2) {
+                    ETConfirmPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    IVOjo2.setBackgroundResource(R.drawable.desbloquear_password);
+                }
+                else {
+                    ETConfirmPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    IVOjo2.setBackgroundResource(R.drawable.bloquear_password);
+                }
+            }
+        });
+
         return view;
     }
 
@@ -114,10 +157,12 @@ public class fragment_register_datos extends Fragment {
             UserService apiService = BackendClient.getUserService();
             UserExistsEmail body = new UserExistsEmail(email);
 
+            LLLoading.setVisibility(View.VISIBLE);
             apiService.existsEmail(body).enqueue(new Callback<Boolean>() {
                 @Override
                 public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                     if (response.isSuccessful()) {
+                        LLLoading.setVisibility(View.INVISIBLE);
                         if (response.body() != null) {
                             boolean existe = response.body();
 
@@ -143,6 +188,7 @@ public class fragment_register_datos extends Fragment {
                             }
                         }
                     } else {
+                        LLLoading.setVisibility(View.INVISIBLE);
                         Toast.makeText(
                                 getContext(),
                                 "Error en el servidor, vuelva a intentarlo más tarde.",
@@ -153,6 +199,7 @@ public class fragment_register_datos extends Fragment {
 
                 @Override
                 public void onFailure(Call<Boolean> call, Throwable t) {
+                    LLLoading.setVisibility(View.INVISIBLE);
                     Toast.makeText(
                             getContext(),
                             "Error en la red, vuelva a intentarlo.",

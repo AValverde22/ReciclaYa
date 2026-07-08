@@ -56,6 +56,7 @@ public class fragment_register_select extends Fragment {
         }
     }
 
+    private LinearLayout LLLoading;
     private ImageView IVRegresarUnoAtras;
 
     private FrameLayout FLPersona;
@@ -81,6 +82,7 @@ public class fragment_register_select extends Fragment {
         email = requireArguments().getString("Email");
         password = requireArguments().getString("Password");
 
+        LLLoading = getActivity().findViewById(R.id.LLLoadingRegister);
         IVRegresarUnoAtras = getActivity().findViewById(R.id.IVRegresarRegister);
 
         FLPersona = view.findViewById(R.id.FLPersonaSeleccionRS);
@@ -173,10 +175,12 @@ public class fragment_register_select extends Fragment {
             UserService apiService = BackendClient.getUserService();
             UserRegister body = new UserRegister(fullName, email, password, role);
 
+            LLLoading.setVisibility(View.VISIBLE);
             apiService.registerUser(body).enqueue(new Callback<Integer>() {
                 @Override
                 public void onResponse(Call<Integer> call, Response<Integer> response) {
                     if (response.isSuccessful() && response.body() != null) {
+                        LLLoading.setVisibility(View.INVISIBLE);
                         int id = response.body();
 
                         SharedPreferences.Editor editor = getContext().getSharedPreferences("INICIAL", MODE_PRIVATE).edit();
@@ -189,6 +193,7 @@ public class fragment_register_select extends Fragment {
                         getActivity().finishAffinity();
 
                     } else {
+                        LLLoading.setVisibility(View.INVISIBLE);
                         Toast.makeText(
                                 getContext(),
                                 "Error en el servidor, vuelva a intentarlo más tarde.",
@@ -199,6 +204,7 @@ public class fragment_register_select extends Fragment {
 
                 @Override
                 public void onFailure(Call<Integer> call, Throwable t) {
+                    LLLoading.setVisibility(View.INVISIBLE);
                     Toast.makeText(
                             getContext(),
                             "Error en la red, vuelva a intentarlo.",

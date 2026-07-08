@@ -4,8 +4,12 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +28,10 @@ import pe.reciclaya.app.services.UserService;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText ETEmail, ETPassword;
+    private LinearLayout LLLoading;
+
+    private ImageView IVOjo;
+    private boolean bloquear = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,23 @@ public class LoginActivity extends AppCompatActivity {
 
         ETEmail = findViewById(R.id.ETEmailLogin);
         ETPassword = findViewById(R.id.ETPasswordLogin);
+
+        LLLoading = findViewById(R.id.LLLoadingLogin);
+        IVOjo = findViewById(R.id.IVOjoLogin);
+    }
+
+    public void mostrarPassword(View view){
+        bloquear = !bloquear;
+
+        if(bloquear) {
+            ETPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            IVOjo.setBackgroundResource(R.drawable.desbloquear_password);
+        }
+        else {
+            ETPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            IVOjo.setBackgroundResource(R.drawable.bloquear_password);
+        }
+
     }
 
     public void IrARegistro(View view){
@@ -47,10 +72,14 @@ public class LoginActivity extends AppCompatActivity {
             UserService apiService = BackendClient.getUserService();
             UserValidate body = new UserValidate(email, password);
 
+            LLLoading.setVisibility(View.VISIBLE);
+
             apiService.validateUser(body).enqueue(new Callback<User>() {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.isSuccessful()) {
+                        LLLoading.setVisibility(View.INVISIBLE);
+
                         if (response.body() != null) {
                             int id = response.body().getId();
 
@@ -75,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }
                     } else {
+                        LLLoading.setVisibility(View.INVISIBLE);
                         Toast.makeText(
                                 LoginActivity.this,
                                 "Error en el servidor, vuelva a intentarlo más tarde.",
@@ -85,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
+                    LLLoading.setVisibility(View.INVISIBLE);
                     Toast.makeText(
                             LoginActivity.this,
                             "Error en la red, vuelva a intentarlo.",

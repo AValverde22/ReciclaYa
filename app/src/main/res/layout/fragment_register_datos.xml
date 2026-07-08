@@ -151,9 +151,10 @@
 
         <EditText
             android:id="@+id/ETPasswordRD"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"
 
             android:background="@color/transparente"
             android:ems="10"
@@ -167,6 +168,14 @@
             android:textColorHint="@color/gris"
 
             android:textSize="14sp"
+            />
+
+        <ImageView
+            android:id="@+id/IVOjoUnoRegister"
+            android:layout_width="22.5dp"
+            android:layout_height="22.5dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/desbloquear_password"
             />
     </LinearLayout>
 
@@ -195,9 +204,10 @@
 
         <EditText
             android:id="@+id/ETConfirmPasswordRD"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="15dp"
 
             android:background="@color/transparente"
             android:ems="10"
@@ -211,6 +221,14 @@
             android:textColorHint="@color/gris"
 
             android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/IVOjoDosRegister"
+            android:layout_width="22.5dp"
+            android:layout_height="22.5dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/desbloquear_password"
+            />
     </LinearLayout>
 
     <LinearLayout
