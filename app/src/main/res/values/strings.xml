@@ -1,3 +1,54 @@
 <resources>
     <string name="app_name">ReciclaYa</string>
+
+    <!-- Titulos -->
+    <string name="Bienvenido">¡Bienvenido!</string>
+    <string name="OlvidoContrasena">¿Olvidaste tu contraseña?</string>
+    <string name="Unete">Únete a la red verde</string>
+
+    <!-- Subtitulos -->
+    <string name="CrearCuenta">Crear Cuenta</string>
+
+    <!-- Subsubtitulos -->
+    <string name="InfoPersonal">INFORMACIÓN PERSONAL</string>
+    <string name="SeguridadDeLaCuenta">SEGURIDAD DE LA CUENTA</string>
+    <string name="CualRol">¿CUÁL SERÁ TU ROL?</string>
+
+    <!-- Mensajes -->
+    <string name="MensajeBienvenida">Únete a la red de reciclaje local. \nConectamos personas con recicladores\npara un planeta más verde.</string>
+    <string name="MensajeTyC">Tus datos serán procesados según nuestra política de sostenibilidad.</string>
+    <string name="MensajeUnete">Completa tus datos para empezar a transformar residuos en recursos.</string>
+
+    <string name="MensajePersona">Deseo publicar solicitudes de recolección para mis residuos.</string>
+    <string name="MensajeReciclador">Busco recolectar materiales y contribuir a la economía circular.</string>
+
+    <!-- Inputs -->
+    <string name="CorreoElectronico">Correo electrónico</string>
+    <string name="CorreoEjemplo">nombre@ejemplo.com</string>
+
+    <string name="Contrasena">Contraseña</string>
+    <string name="ConfirmarContra">Confirmar Contraseña</string>
+    <string name="ContrasenaEjemplo">••••••••</string>
+
+    <string name="NombreCompleto">Nombre completo</string>
+
+    <string name="PersonaRecicla">Persona que recicla</string>
+    <string name="RecicladorLocal">Reciclador Local</string>
+
+    <!-- Redirigir -->
+    <string name="AunNoCuenta">¿Aún no tienes una cuenta?</string>
+    <string name="RegistrateAqui">Regístrate aquí</string>
+
+    <string name="TyC">Acepto los Términos de Servicio y la Política de Privacidad.</string>
+
+    <string name="YaTienesUnaCuenta">¿Ya tienes una cuenta? </string>
+    <string name="Iniciarssesion">Iniciar sesión</string>
+
+    <!-- Botones -->
+    <string name="IniciarSesion">Iniciar Sesión</string>
+    <string name="Confirmar">Confirmar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
