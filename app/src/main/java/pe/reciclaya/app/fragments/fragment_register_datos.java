@@ -4,10 +4,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -21,9 +30,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 import pe.reciclaya.app.R;
 import pe.reciclaya.app.activities.LoginActivity;
 import pe.reciclaya.app.activities.RegisterActivity;
+import pe.reciclaya.app.activities.TyCActivity;
 import pe.reciclaya.app.config.BackendClient;
 import pe.reciclaya.app.requests.UserExistsEmail;
 import pe.reciclaya.app.services.UserService;
@@ -67,10 +79,23 @@ public class fragment_register_datos extends Fragment {
     private EditText ETFullName, ETEmail, ETPassword, ETConfirmPassword;
     private CheckBox checkBox;
     private Button btnCrearCuenta;
-    private TextView TVIrALogin;
+    private TextView TVIrALogin, TVIrATyC;
 
     private ImageView IVOjo1, IVOjo2;
     private boolean bloquear1 = true, bloquear2 = true;
+
+
+    private boolean flagCampos = true;
+    private boolean flagEmail = true;
+    private boolean flagPassword = true;
+    private boolean flagConfirmPassword = true;
+
+    private static final Pattern PASSWORD_PATTERN =
+            Pattern.compile("^" +
+                    "(?=.*[@#$^&+=])" +
+                    "(?=\\S+$)" +
+                    ".{8,}" +
+                    "$");
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,6 +115,7 @@ public class fragment_register_datos extends Fragment {
         checkBox = view.findViewById(R.id.CBRD);
         btnCrearCuenta = view.findViewById(R.id.BtnCrearCuentaRD);
         TVIrALogin = view.findViewById(R.id.TVIniciarSesionRD);
+        TVIrATyC = view.findViewById(R.id.TVTyCRD);
 
         IVRegresarUnoAtras.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +137,35 @@ public class fragment_register_datos extends Fragment {
                 getContext().startActivity(intent);
             }
         });
+
+        TVIrATyC.setMovementMethod(LinkMovementMethod.getInstance());
+        SpannableString content = new SpannableString("Acepto los Términos de Servicio y la Política de Privacidad.");
+        content.setSpan(new UnderlineSpan(), 11, 31, 0);
+        content.setSpan(new UnderlineSpan(), 37, 59, 0);
+
+        content.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                Intent intent = new Intent(getContext(), TyCActivity.class);
+                intent.putExtra("Tipo", 0);
+                getContext().startActivity(intent);
+
+            }
+        }, 11, 31, 0);
+
+        content.setSpan(new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View widget) {
+                Intent intent = new Intent(getContext(), TyCActivity.class);
+                intent.putExtra("Tipo", 1);
+                getContext().startActivity(intent);
+            }
+        }, 37, 59, 0);
+
+        content.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.verde)), 11, 31, 0);
+        content.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.verde)), 37, 59, 0);
+
+        TVIrATyC.setText(content);
 
         IVOjo1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +199,10 @@ public class fragment_register_datos extends Fragment {
             }
         });
 
+        validarEmail();
+        validarPassword();
+        validarCoincidenciaPassword();
+
         return view;
     }
 
@@ -153,7 +212,14 @@ public class fragment_register_datos extends Fragment {
         String password = ETPassword.getText().toString();
         String confirmPassword = ETConfirmPassword.getText().toString();
 
-        if(validarCampos(fullName, email, password, confirmPassword)) {
+        ETFullName.clearFocus();
+        ETEmail.clearFocus();
+        ETPassword.clearFocus();
+        ETConfirmPassword.clearFocus();
+
+        validarCampos(fullName, email, password, confirmPassword);
+
+        if(!flagCampos && !flagEmail && !flagPassword && !flagConfirmPassword) {
             UserService apiService = BackendClient.getUserService();
             UserExistsEmail body = new UserExistsEmail(email);
 
@@ -210,40 +276,82 @@ public class fragment_register_datos extends Fragment {
         }
     }
 
-    private boolean validarCampos(String fullName, String email, String password, String confirmPassword) {
+    private void validarCampos(String fullName, String email, String password, String confirmPassword){
         if(fullName.isBlank() || email.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
-            Toast.makeText(
-                    getContext(),
-                    "¡Los campos no pueden estar vacíos!",
-                    Toast.LENGTH_SHORT
-            ).show();
-            return false;
+            flagCampos = true;
+
+            if(fullName.isBlank()) ETFullName.setError("El campo no puede estar vacío");
+            if(email.isBlank()) ETEmail.setError("El campo no puede estar vaío");
+            if(password.isBlank()) ETPassword.setError("El campo no puede estar vacío");
+            if(confirmPassword.isBlank()) ETConfirmPassword.setError("El campo no puede estar vacío");
+
         } else if(!checkBox.isChecked()) {
             Toast.makeText(
                     getContext(),
-                    "¡Debe de aceptar los términos y condiciones!",
+                    "Para seguir, debe de aceptar los términos y condiciones.",
                     Toast.LENGTH_SHORT
             ).show();
-            return false;
-        } else if(!validarEmail(email)){
-            Toast.makeText(
-                    getContext(),
-                    "¡Escriba un correo válido!",
-                    Toast.LENGTH_SHORT
-            ).show();
-            return false;
-        } else if (!validarPassword(password, confirmPassword)) {
-            Toast.makeText(
-                    getContext(),
-                    "¡Las contraseñas deben de coincidir!",
-                    Toast.LENGTH_SHORT
-            ).show();
-            return false;
-        }
 
-        return true;
+            flagCampos = true;
+        }  else flagCampos = false;
     }
 
-    private boolean validarEmail(String email) { return Patterns.EMAIL_ADDRESS.matcher(email).matches();}
-    private boolean validarPassword(String p1, String p2) {return p1.equals(p2);}
+    private void validarEmail(){
+        ETEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                String email = ETEmail.getText().toString();
+
+                if(!hasFocus && !email.isEmpty()){
+                    if(Patterns.EMAIL_ADDRESS.matcher(email).matches()) flagEmail = false;
+                    else {ETEmail.setError("Por favor, ingrese un correo válido"); flagEmail = true;}
+                } else flagEmail = true;
+            }
+        });
+    }
+
+    private void validarPassword(){
+        ETPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                String password = ETPassword.getText().toString();
+                String confirmPassword = ETConfirmPassword.getText().toString();
+
+                if(!hasFocus && !password.isEmpty()) {
+                    if(PASSWORD_PATTERN.matcher(password).matches()) flagPassword = false;
+                    else {
+                        ETPassword.setError(
+                                "La contraseña debe de contenter al menos:\n" +
+                                        "   • Un caracter especial\n" +
+                                        "   • Una mayúscula\n" +
+                                        "   • 8 caractéres");
+                        flagPassword = true;
+                    }
+
+                    if(!confirmPassword.isEmpty()) {
+                        if(password.equals(confirmPassword)) flagConfirmPassword = false;
+                        else {
+                            ETConfirmPassword.setError("Las contraseñas deben de coincidir");
+                            flagConfirmPassword = true;
+                        }
+                    }
+                } else flagPassword = true;
+            }
+        });
+    }
+
+    private void validarCoincidenciaPassword(){
+        ETConfirmPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                String password = ETPassword.getText().toString();
+                String confirmPassword = ETConfirmPassword.getText().toString();
+
+                if(!hasFocus && !confirmPassword.isEmpty()){
+                    if(confirmPassword.equals(password)) flagConfirmPassword = false;
+                    else {ETConfirmPassword.setError("Las contraseñas deben de coincidir"); flagConfirmPassword = true;}
+                } else flagConfirmPassword = true;
+            }
+        });
+    }
 }

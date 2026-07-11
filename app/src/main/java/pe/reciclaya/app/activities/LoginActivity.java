@@ -1,6 +1,5 @@
 package pe.reciclaya.app.activities;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.IntentCompat;
 
 import pe.reciclaya.app.models.User;
 import retrofit2.Call;
@@ -33,6 +31,9 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView IVOjo;
     private boolean bloquear = true;
 
+    private boolean flagEmail = false;
+    private boolean flagPassword = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,9 @@ public class LoginActivity extends AppCompatActivity {
 
         LLLoading = findViewById(R.id.LLLoadingLogin);
         IVOjo = findViewById(R.id.IVOjoLogin);
+
+        validarEmail();
+        validarPassword();
     }
 
     public void mostrarPassword(View view){
@@ -56,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
             ETPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             IVOjo.setBackgroundResource(R.drawable.bloquear_password);
         }
-
     }
 
     public void IrARegistro(View view){
@@ -68,7 +71,10 @@ public class LoginActivity extends AppCompatActivity {
         String email = ETEmail.getText().toString();
         String password = ETPassword.getText().toString();
 
-        if(validarCampos(email, password)) {
+        ETEmail.clearFocus();
+        ETPassword.clearFocus();
+
+        if(!flagEmail && !flagPassword) {
             UserService apiService = BackendClient.getUserService();
             UserValidate body = new UserValidate(email, password);
 
@@ -126,16 +132,37 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private boolean validarCampos(String email, String password) {
-        if(email.isBlank() || password.isBlank()) {
-            Toast.makeText(
-                    this,
-                    "Los campos no pueden estar vacíos",
-                    Toast.LENGTH_SHORT
-            ).show();
-            return false;
-        }
+    private void validarEmail(){
+        ETEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                String email = ETEmail.getText().toString();
 
-        return true;
+                if(!hasFocus) {
+                    if(!email.isBlank()) flagEmail = false;
+                    else {
+                        ETEmail.setError("El campo no puede estar vacío");
+                        flagEmail = true;
+                    }
+                } else flagEmail = true;
+            }
+        });
+    }
+
+    private void validarPassword(){
+        ETPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                String password = ETPassword.getText().toString();
+
+                if(!hasFocus) {
+                    if(!password.isBlank()) flagPassword = false;
+                    else {
+                        ETPassword.setError("El campo no puede estar vacío");
+                        flagPassword = true;
+                    }
+                } else flagPassword = true;
+            }
+        });
     }
 }

@@ -258,10 +258,10 @@
             >
 
             <TextView
+                android:id="@+id/TVTyCRD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="@string/TyC"
                 android:textColor="@color/black"
                 android:fontFamily="@font/gotham_medium"
                 android:textSize="13sp"
