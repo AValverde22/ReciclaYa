@@ -31,13 +31,11 @@ public class TyCActivity extends AppCompatActivity {
         tipo = intent.getIntExtra("Tipo", 0);
 
         if(tipo == 0){
-            TVTitulo.setText("Términos de Servicio");
-            TVTexto.setText("");
+            TVTitulo.setText(getResources().getText(R.string.TerminosDeServicio));
+            TVTexto.setText(getResources().getText(R.string.MensajeTerminosDeServicio));
         } else {
-            TVTitulo.setText("Política de Privacidad");
-            TVTexto.setText("");
+            TVTitulo.setText(getResources().getText(R.string.PoliticaDePrivaciadad));
+            TVTexto.setText(getResources().getText(R.string.MensajePoliticaDePrivacidad));
         }
     }
-
-    public void Regresar(View view) {finish();}
 }

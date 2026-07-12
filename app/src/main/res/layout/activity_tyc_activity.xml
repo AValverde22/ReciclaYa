@@ -9,32 +9,17 @@
     android:background="@color/white"
     tools:context=".activities.TyCActivity">
 
-    <FrameLayout
+    <TextView
+        android:id="@+id/TVTituloTyC"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1">
+        android:layout_weight="0.1"
 
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+        android:fontFamily="@font/gothamnarrow_medium"
 
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="30dp"
-            android:background="@drawable/flechaizquierda"
-            android:onClick="Regresar" />
-
-        <TextView
-            android:id="@+id/TVTituloTyC"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:fontFamily="@font/gothamnarrow_medium"
-
-            android:gravity="center"
-            android:text="@string/Terminos"
-            android:textColor="@color/black"
-            android:textSize="19sp" />
-    </FrameLayout>
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="19sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,7 +35,7 @@
             android:textColor="@color/black"
             android:fontFamily="@font/gothamnarrow_medium"
             android:textSize="14sp"
-            android:justificationMode="inter_word"
+            android:padding="10dp"
             />
     </ScrollView>
 
