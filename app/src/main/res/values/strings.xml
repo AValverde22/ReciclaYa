@@ -1,3 +1,391 @@
 <resources>
     <string name="app_name">ReciclaYa</string>
+
+    <!-- Titulos -->
+    <string name="Bienvenido">¡Bienvenido!</string>
+    <string name="OlvidoContrasena">¿Olvidaste tu contraseña?</string>
+    <string name="Unete">Únete a la red verde</string>
+
+    <string name="TerminosDeServicio">TÉRMINOS DE SERVICIO DE USO DE LA APLICACIÓN MÓVIL RECICLAYA</string>
+    <string name="PoliticaDePrivaciadad">POLÍTICA DE PRIVACIDAD DE RECICLAYA</string>
+
+    <!-- Subtitulos -->
+    <string name="CrearCuenta">Crear Cuenta</string>
+
+    <!-- Subsubtitulos -->
+    <string name="InfoPersonal">INFORMACIÓN PERSONAL</string>
+    <string name="SeguridadDeLaCuenta">SEGURIDAD DE LA CUENTA</string>
+    <string name="CualRol">¿CUÁL SERÁ TU ROL?</string>
+
+    <!-- Mensajes -->
+    <string name="MensajeBienvenida">Únete a la red de reciclaje local. \nConectamos personas con recicladores\npara un planeta más verde.</string>
+    <string name="MensajeTyC">Tus datos serán procesados según nuestra política de sostenibilidad.</string>
+    <string name="MensajeUnete">Completa tus datos para empezar a transformar residuos en recursos.</string>
+
+    <string name="MensajePersona">Deseo publicar solicitudes de recolección para mis residuos.</string>
+    <string name="MensajeReciclador">Busco recolectar materiales y contribuir a la economía circular.</string>
+
+    <!-- Inputs -->
+    <string name="CorreoElectronico">Correo electrónico</string>
+    <string name="CorreoEjemplo">nombre@ejemplo.com</string>
+
+    <string name="Contrasena">Contraseña</string>
+    <string name="ConfirmarContra">Confirmar Contraseña</string>
+    <string name="ContrasenaEjemplo">••••••••</string>
+
+    <string name="NombreCompleto">Nombre completo</string>
+
+    <string name="PersonaRecicla">Persona que recicla</string>
+    <string name="RecicladorLocal">Reciclador Local</string>
+
+    <!-- Redirigir -->
+    <string name="AunNoCuenta">¿Aún no tienes una cuenta?</string>
+    <string name="RegistrateAqui">Regístrate aquí</string>
+
+    <string name="TyC">Acepto los Términos de Servicio y la Política de Privacidad.</string>
+
+    <string name="YaTienesUnaCuenta">¿Ya tienes una cuenta? </string>
+    <string name="Iniciarssesion">Iniciar sesión</string>
+
+    <!-- Botones -->
+    <string name="IniciarSesion">Iniciar Sesión</string>
+    <string name="Confirmar">Confirmar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="MensajeTerminosDeServicio">
+        <b>1. Introducción\n</b>
+        Bienvenido a ReciclaYa.\n
+        Estos Términos de Servicio regulan el acceso, registro y uso de la aplicación móvil
+        ReciclaYa, una plataforma diseñada para conectar a personas que desean entregar materiales
+        reciclables con usuarios interesados en recolectarlos.\n\n
+
+        Al registrarte o utilizar la aplicación, confirmas que has leído, comprendido y aceptado
+        íntegramente estos Términos y Condiciones, así como la Política de Privacidad de ReciclaYa.
+        Si no estás de acuerdo con alguna de estas disposiciones.\n\n
+
+        <b>2. Definiciones\n</b>
+        Para una mejor comprensión de este documento, se entenderá por:\n
+        \t● Aplicación: La plataforma móvil denominada ReciclaYa.\n
+        \t● Usuario: Toda persona que crea una cuenta y utiliza la aplicación.\n
+		\t● Usuario reciclador: Usuario que publica solicitudes para entregar materiales reciclables.\n
+		\t● Usuario recolector: Usuario que acepta solicitudes para recoger materiales reciclables.\n
+		\t● Solicitud de reciclaje: Publicación realizada por un usuario para coordinar la entrega de materiales reciclables.\n
+        \t● Material reciclable: Residuo que puede ser reutilizado o reciclado de acuerdo con la legislación vigente.\n
+        \t● Cuenta: Perfil creado por el usuario para acceder a las funciones de la aplicación.\n\n
+
+        <b>3. Objeto del servicio\n</b>
+        ReciclaYa es una plataforma tecnológica que facilita el contacto entre personas que desean
+        entregar materiales reciclables y usuarios interesados en recolectarlos.\n\n
+
+        Nuestro objetivo es promover el reciclaje responsable y contribuir al desarrollo de una
+        economía circular mediante herramientas digitales que permitan coordinar la recolección de
+        residuos reciclables de manera sencilla y segura.\n\n
+
+        ReciclaYa actúa únicamente como intermediario tecnológico. La plataforma no adquiere la
+        propiedad de los materiales publicados ni participa directamente en su transporte o entrega,
+        salvo que se indique expresamente lo contrario.\n\n
+
+        <b>4. Registro de usuarios\n</b>
+        Algunas funciones de la aplicación requieren la creación de una cuenta.\n\n
+        Durante el registro podrán solicitarse datos como:\n
+		\t● Nombres y apellidos.\n
+		\t● Correo electrónico.\n
+		\t● Otra información necesaria para brindar el servicio.\n\n
+
+        El usuario declara que toda la información proporcionada es verdadera, completa y se
+        encuentra actualizada, comprometiéndose a mantenerla vigente mientras utilice la plataforma.\n\n
+
+        Cada usuario es responsable de mantener la confidencialidad de sus credenciales de acceso y
+        de todas las actividades realizadas desde su cuenta.\n\n
+
+        ReciclaYa podrá suspender o cancelar cuentas cuando detecte información falsa, incompleta,
+        fraudulenta o utilizada de manera indebida.\n\n
+
+        <b>5. Uso adecuado de la plataforma\n</b>
+        El usuario se compromete a utilizar la aplicación de forma responsable, ética y conforme a la
+        legislación peruana.\n\n
+        Está prohibido:\n
+		\t● Proporcionar información falsa o suplantar la identidad de otra persona.\n
+		\t● Publicar contenido ilegal, ofensivo, engañoso o que afecte los derechos de terceros.\n
+		\t● Intentar acceder sin autorización a sistemas, servidores o bases de datos de la plataforma.\n
+		\t● Introducir virus, programas maliciosos o realizar acciones que comprometan la seguridad del servicio.\n
+		\t● Utilizar la aplicación para fines distintos a aquellos para los que fue creada.\n
+		\t● Realizar actividades fraudulentas o que perjudiquen a otros usuarios.\n\n
+
+        El incumplimiento de estas obligaciones podrá ocasionar la suspensión temporal o definitiva
+        de la cuenta.\n\n
+
+        <b>6. Publicación y gestión de solicitudes\n</b>
+        Los usuarios recicladores podrán publicar solicitudes para entregar materiales reciclables.\n\n
+
+        Los usuarios recolectores podrán aceptar dichas solicitudes utilizando las funciones
+        disponibles dentro de la aplicación.\n\n
+
+        Cada usuario es responsable de la información que publique y de los acuerdos que establezca
+        con otros usuarios.\n\n
+
+        ReciclaYa no garantiza que todas las solicitudes reciban respuesta ni que las coordinaciones
+        entre usuarios culminen satisfactoriamente.\n\n
+
+        <b>7. Materiales permitidos y restringidos\n</b>
+        La aplicación está destinada exclusivamente a la gestión de materiales reciclables permitidos
+        por la legislación vigente.\n\n
+
+        No está permitido publicar, ofrecer o coordinar la entrega de:\n
+		\t● Residuos peligrosos.\n
+        \t● Residuos hospitalarios o biocontaminados.\n
+        \t● Sustancias químicas peligrosas.\n
+		\t● Materiales explosivos o inflamables.\n
+		\t● Armas, municiones o materiales de uso restringido.\n
+		\t● Cualquier otro material cuya manipulación o transporte esté prohibido por la normativa aplicable.\n\n
+
+        ReciclaYa podrá eliminar cualquier publicación que incumpla estas restricciones y adoptar las
+        medidas necesarias para proteger la seguridad de la comunidad.\n\n
+
+        <b>8. Compromiso ambiental\n</b>
+        ReciclaYa nace con el propósito de fomentar el reciclaje y promover una adecuada gestión de
+        residuos que contribuya al cuidado del medio ambiente.\n\n
+
+        Los usuarios se comprometen a utilizar la plataforma de manera responsable y respetando la
+        normativa ambiental vigente.\n\n
+
+        La aplicación podrá rechazar o eliminar publicaciones que representen riesgos para las
+        personas, el entorno o que sean contrarias a estos principios.\n\n
+
+        <b>9. Obligaciones del usuario\n</b>
+        Al utilizar la aplicación, el usuario se compromete a:\n
+		\t● Proporcionar información veraz y actualizada.\n
+		\t● Proteger la confidencialidad de su cuenta.\n
+		\t● Utilizar la plataforma conforme a la legislación vigente.\n
+		\t● Respetar los derechos de los demás usuarios.\n
+		\t● No realizar actividades ilícitas mediante la aplicación.\n
+		\t● Actuar de buena fe en todas las interacciones realizadas dentro de la plataforma.\n\n
+
+        <b>10. Responsabilidad de ReciclaYa\n</b>
+        ReciclaYa realizará esfuerzos razonables para mantener la disponibilidad y el correcto
+        funcionamiento de la aplicación.\n
+
+        Sin embargo, no garantiza:\n
+		\t● La disponibilidad continua e ininterrumpida del servicio.\n
+		\t● La ausencia total de errores técnicos.\n
+		\t● La compatibilidad con todos los dispositivos o sistemas operativos.\n
+		\t● Que todas las solicitudes publicadas sean atendidas.\n\n
+
+        La plataforma actúa únicamente como intermediaria tecnológica y no forma parte de los
+        acuerdos celebrados entre los usuarios.\n\n
+
+        Por ello, ReciclaYa no será responsable por incumplimientos, pérdidas, daños, conflictos o
+        cualquier otra situación derivada de las relaciones entre los usuarios.\n\n
+
+        <b>11. Propiedad intelectual\n</b>
+        Todos los derechos relacionados con la aplicación, incluyendo su software, diseño, logotipos,
+        marcas, textos, imágenes, bases de datos, interfaces y demás elementos protegidos por la
+        legislación sobre propiedad intelectual, pertenecen a ReciclaYa o a sus respectivos titulares.\n\n
+
+        El usuario recibe únicamente una licencia limitada, personal, revocable, no exclusiva e
+        intransferible para utilizar la aplicación conforme a estos Términos de Servicio.\n\n
+
+        Queda prohibida la reproducción, modificación, distribución, ingeniería inversa o cualquier
+        otro uso no autorizado de los elementos protegidos.\n\n
+
+        <b>12. Protección de datos personales\n</b>
+        El tratamiento de los datos personales se realizará conforme a la Política de Privacidad de
+        ReciclaYa y a la legislación peruana vigente sobre protección de datos personales.\n\n
+
+        Al utilizar la aplicación, el usuario declara haber leído y aceptado dicha política.\n\n
+
+        <b>13. Suspensión y cancelación de cuentas\n</b>
+        ReciclaYa podrá suspender o cancelar una cuenta cuando detecte, entre otras situaciones:\n
+		\t● Incumplimiento de estos Términos y Condiciones.\n
+		\t● Uso fraudulento de la plataforma.\n
+		\t● Actividades ilícitas.\n
+		\t● Conductas que comprometan la seguridad de la aplicación o de otros usuarios.\n\n
+
+        Asimismo, el usuario podrá solicitar el cierre de su cuenta a través de los canales oficiales de
+        atención.\n\n
+
+        <b>14. Modificaciones\n</b>
+        ReciclaYa podrá actualizar o modificar estos Términos y Condiciones cuando sea necesario
+        para incorporar nuevas funcionalidades, cumplir cambios normativos o mejorar el
+        funcionamiento de la plataforma.\n\n
+
+        Las modificaciones serán publicadas dentro de la aplicación y entrarán en vigencia en la
+        fecha indicada.\n\n
+
+        El uso continuado de la aplicación después de la publicación de dichos cambios implicará la
+        aceptación de la versión actualizada.\n\n
+
+        <b>15. Legislación aplicable y solución de controversias\n</b>
+        Estos Términos de Servicio se rigen por las leyes de la República del Perú.\n\n
+
+        Cualquier controversia relacionada con la interpretación o aplicación de este documento
+        procurará resolverse inicialmente mediante comunicación y conciliación entre las partes.\n\n
+
+        Si no fuera posible alcanzar un acuerdo, la controversia será sometida a la jurisdicción de los
+        jueces y tribunales competentes de la República del Perú.\n\n
+
+        <b>16. Contacto\n</b>
+        Si tienes consultas relacionadas con estos Términos de Servicio, puedes comunicarte con
+        nosotros a través del siguiente correo: equipo@reciclaya.edu.pe
+    </string>
+
+    <string name="MensajePoliticaDePrivacidad">
+        <b>1. Introducción\n</b>
+        Bienvenido a ReciclaYa.\n\n
+        Al registrarte o utilizar la aplicación, confirmas que has leído y comprendido esta Política de
+        Privacidad, y autorizas el tratamiento de tus datos personales de conformidad con la
+        legislación peruana vigente.\n\n
+
+        Esta política es aplicable a todos los usuarios de la plataforma.\n\n
+
+        <b>2. Marco normativo\n</b>
+        El tratamiento de los datos personales se realiza de conformidad con la legislación peruana
+        vigente, incluyendo:\n\n
+        \t● Ley N.º 29733, Ley de Protección de Datos Personales.\n
+        \t● Reglamento de la Ley de Protección de Datos Personales, aprobado mediante Decreto Supremo N.º 016-2024-JUS.\n
+        \t● Las demás normas que resulten aplicables.\n\n
+
+        <b>3. Datos recopilados\n</b>
+        ReciclaYa recopila únicamente la información necesaria para brindar sus servicios y mejorar
+        la experiencia de los usuarios.\n\n
+
+        <b>3.1 Datos proporcionados por el usuario\n</b>
+        Al crear una cuenta o utilizar la aplicación podremos solicitar información como:\n
+        \t● Nombres y apellidos.\n
+        \t● Correo electrónico.\n
+        \t● Fotografía de perfil (opcional).\n
+        \t● Información relacionada con la cuenta de usuario.\n\n
+
+        <b>3.2 Información generada durante el uso\n</b>
+        Mientras utilizas la aplicación podremos registrar información relacionada con la actividad de
+        tu cuenta, por ejemplo:\n
+        \t● Solicitudes de reciclaje publicadas.\n
+        \t● Solicitudes aceptadas.\n
+        \t● Historial de actividades.\n
+        \t● Fecha y hora de acceso.\n
+        \t● Registros de uso de la plataforma.\n\n
+
+        <b>3.3 Información técnica\n</b>
+        Para garantizar el funcionamiento y la seguridad de la aplicación podremos recopilar datos
+        técnicos como:\n
+        \t● Dirección IP.\n
+        \t● Tipo de dispositivo.\n
+        \t● Sistema operativo.\n
+        \t● Identificadores técnicos de la aplicación.\n
+        \t● Registros de errores o fallos del sistema.\n\n
+
+        Siempre procuraremos recopilar únicamente los datos personales estrictamente necesarios
+        para prestar nuestros servicios.\n\n
+
+        <b>4. Uso de utilización de los datos\n</b>
+        Los datos personales son tratados con las siguientes finalidades:\n
+        \t● Crear y administrar tu cuenta.\n
+        \t● Permitir el acceso a la aplicación.\n
+        \t● Identificar a los usuarios dentro de la plataforma.\n
+        \t● Gestionar las solicitudes de reciclaje.\n
+        \t● Facilitar la comunicación y coordinación entre usuarios recicladores y recolectores.\n
+        \t● Brindar soporte técnico y responder consultas.\n
+        \t● Mantener el correcto funcionamiento de la aplicación.\n
+        \t● Detectar actividades fraudulentas o usos indebidos.\n
+        \t● Proteger la seguridad de la plataforma y de la comunidad de usuarios.\n
+        \t● Mejorar continuamente nuestros servicios y desarrollar nuevas funcionalidades.\n
+        \t● Elaborar estadísticas internas utilizando, cuando sea posible, información agregada anonimizada.\n
+        \t● Cumplir obligaciones legales o atender requerimientos de autoridades competentes.\n\n
+
+        No utilizaremos tus datos personales para finalidades distintas a las descritas en esta política
+        sin informarte previamente y, cuando corresponda, solicitar tu consentimiento.\n\n
+
+        <b>5. Base legal para el tratamiento de los datos\n</b>
+        El tratamiento de tus datos personales se sustenta en una o más de las siguientes bases
+        legales:\n
+        \t● El consentimiento otorgado al aceptar esta Política de Privacidad.\n
+        \t● La necesidad de ejecutar los servicios solicitados mediante la aplicación.\n
+        \t● El cumplimiento de obligaciones legales aplicables a ReciclaYa.\n
+        \t● Nuestro interés legítimo en mantener la seguridad, estabilidad y correcto
+        funcionamiento de la plataforma, respetando siempre los derechos de los usuarios.\n\n
+
+        <b>6. Conservación de los datos\n</b>
+        Conservaremos tus datos personales únicamente durante el tiempo necesario para cumplir
+        con las finalidades descritas en esta política.\n\n
+
+        En términos generales, los datos serán conservados:\n
+        \t● Mientras tu cuenta permanezca activa.\n
+        \t● Durante los plazos exigidos por la legislación vigente.\n
+        \t● Hasta que solicites la eliminación de tu cuenta, salvo que exista una obligación legal
+            que nos exija conservar determinada información por un período adicional.\n\n
+
+        Una vez vencidos dichos plazos, los datos serán eliminados o anonimizados de manera segura.\n\n
+
+        <b>7. Compartimiento de los datos con externos\n</b>
+        ReciclaYa no vende, alquila ni comercializa la información personal de sus usuarios.\n\n
+
+        Tus datos únicamente podrán compartirse en los siguientes casos:\n
+        \t● Con proveedores tecnológicos que prestan servicios indispensables para el
+            funcionamiento de la aplicación, quienes estarán sujetos a obligaciones de
+            confidencialidad y seguridad.\n
+        \t● Cuando una autoridad competente lo solicite conforme a la legislación vigente.\n
+        \t● En los demás casos expresamente permitidos o exigidos por la ley.\n\n
+
+        Si en algún momento fuera necesario realizar transferencias internacionales de datos
+        personales, estas se efectuarán cumpliendo las garantías establecidas por la normativa
+        aplicable.\n\n
+
+        <b>8. Seguridad de la información\n</b>
+        Implementamos medidas técnicas, administrativas y organizativas razonables para proteger
+        los datos personales frente a accesos no autorizados, pérdida, alteración, destrucción o
+        divulgación indebida.\n\n
+
+        Sin embargo, debido a la naturaleza de Internet y de los sistemas informáticos, ningún
+        mecanismo de seguridad puede garantizar una protección absoluta. Por ello, aunque
+        adoptamos medidas de seguridad adecuadas, no podemos asegurar que nuestros sistemas sean
+        completamente invulnerables.\n\n
+
+        <b>9. Tus derechos\n</b>
+        Como titular de tus datos personales, puedes ejercer los derechos reconocidos por la
+        legislación peruana, entre ellos:\n
+        \t● Derecho de acceso.\n
+        \t● Derecho de rectificación.\n
+        \t● Derecho de cancelación.\n
+        \t● Derecho de oposición.\n
+        \t● Derecho a revocar el consentimiento, cuando corresponda.\n\n
+
+        Para ejercer cualquiera de estos derechos puedes comunicarte con nosotros a través del
+        siguiente correo electrónico: equipo@reciclaya.edu.pe\n\n
+
+        La solicitud deberá permitir verificar tu identidad e indicar claramente el derecho que deseas
+        ejercer.\n\n
+
+        Atenderemos las solicitudes dentro de los plazos establecidos por la legislación vigente.\n\n
+
+        La aplicación puede utilizar herramientas de análisis, registros de eventos y tecnologías
+        similares para:\n
+        \t● Comprender cómo se utiliza la aplicación.\n
+        \t● Detectar errores técnicos.\n
+        \t● Mejorar el rendimiento del servicio.\n
+        \t● Optimizar la experiencia del usuario.\n\n
+
+        Estas herramientas no serán utilizadas para crear perfiles comerciales sin contar con la base
+        legal correspondiente.\n\n
+
+        <b>10. Protección de menores de edad\n</b>
+        ReciclaYa está dirigida a personas que cuentan con la capacidad legal para aceptar estos
+        términos y administrar una cuenta de usuario.\n\n
+
+        Si detectamos que se han recopilado datos personales de un menor de edad sin la autorización
+        exigida por la legislación aplicable, podremos eliminar dicha información y restringir el
+        acceso a la plataforma.\n\n
+
+        <b>11. Cambios en esta Política de Privacidad\n</b>
+        Podremos actualizar esta Política de Privacidad cuando sea necesario para incorporar
+        mejoras, adaptarnos a cambios normativos o implementar nuevas funcionalidades.\n
+
+        La versión vigente estará siempre disponible dentro de la aplicación y entrará en vigor desde
+        la fecha indicada en su publicación.\n\n
+
+        Te recomendamos revisar esta política periódicamente para mantenerte informado sobre la
+        forma en que tratamos tus datos personales.\n\n
+    </string>
 </resources>
